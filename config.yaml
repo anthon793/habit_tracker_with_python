@@ -1,0 +1,10 @@
+logging_level: INFO
+activities:
+  - coding
+  - screen_time
+  - reading
+  - sleep
+  - browsing
+  - gaming
+  - video_calls
+  - social_media
