@@ -1,2 +1,6 @@
-matplotlib
 pandas
+matplotlib
+seaborn
+pyyaml
+psutil
+pywin32
