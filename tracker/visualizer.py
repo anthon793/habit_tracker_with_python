@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd
 
 class Visualizer:
     def plot(self, data):
@@ -15,3 +16,13 @@ class Visualizer:
         plt.ylabel("Total Duration (hours)")
         plt.title("Time Spent on Different Activities")
         plt.show()
+
+    def visualize_habits(self, activities):
+        # Convert activities list to a DataFrame
+        activity_counts = pd.DataFrame(activities, columns=["activity"])
+        activity_counts["count"] = 1
+        activity_data = activity_counts.groupby("activity").count().reset_index()
+        activity_data.columns = ["activity", "duration"]
+
+        # Plot the data
+        self.plot(activity_data)
