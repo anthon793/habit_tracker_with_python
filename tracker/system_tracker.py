@@ -21,6 +21,8 @@ def categorize_activity(window_title):
         return "Coding"
     elif "VLC" in window_title:
         return "Movies"
+    elif any(browser in window_title for browser in ["Chrome", "Firefox", "Edge", "Safari", "Opera"]):
+        return "Browsing"
     else:
         return "Other"
 
