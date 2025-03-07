@@ -1,6 +1,7 @@
 import psutil
 import pygetwindow as gw
 import time
+from threading import Event
 
 def get_running_processes():
     processes = []
@@ -26,9 +27,9 @@ def categorize_activity(window_title):
     else:
         return "Other"
 
-def log_activity(log_file_path="activity_log.txt", interval=60):
+def log_activity(log_file_path="activity_log.txt", interval=60, stop_event=None):
     with open(log_file_path, "a") as log_file:
-        while True:
+        while not stop_event.is_set():
             active_window = get_active_window()
             activity_category = categorize_activity(active_window) if active_window else "Unknown"
             running_processes = get_running_processes()
