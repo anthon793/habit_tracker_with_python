@@ -13,5 +13,12 @@ class Tracker:
         return self.data
 
     def track_activity(self, activity_category):
+        # Assuming activity_category is a dictionary with 'activity' and 'duration' keys
         self.activities.append(activity_category)
         print(f"Activity tracked: {activity_category}")
+
+    def calculate_screen_time(self):
+        # Logic to calculate the total screen time
+        screen_time = sum(activity['duration'] for activity in self.activities if activity['activity'] == 'Browsing')
+        print(f"Calculated screen time: {screen_time}")
+        return screen_time
